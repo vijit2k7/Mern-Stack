@@ -1,21 +1,54 @@
+/**
+ /* * .root-wrapper {
+ *     display: grid;
+ *     height: 100vh;
+ *     width: 100vw;
+ *     min-width: 1200px;
+ *     grid-template-rows: 50px calc(100vh - 50px);
+ *     grid-template-columns: 20% 25% auto;
+ *     grid-template-areas: "HEADER HEADER HEADER" "FOLDERS MAILLIST MAILBODY";
+ * }
+ * .root-header {
+ *     grid-area: HEADER;
+ * }
+ * .root-folders {
+ *     grid-area: FOLDERS;
+ * }
+ * .root-maillist {
+ *     grid-area: MAILLIST;
+ * }
+ * .root-mailbody {
+ *     grid-area: MAILBODY;
+ * }
+ *
+ * @format
+ */
 .root-wrapper {
-    display: grid;
-    height: 100vh;
-    width: 100vw;
-    min-width: 1200px;
-    grid-template-rows: 50px calc(100vh - 50px);
-    grid-template-columns: 20% 25% auto;
-    grid-template-areas: "HEADER HEADER HEADER" "FOLDERS MAILLIST MAILBODY";
+	background-color: antiquewhite;
 }
-.root-header {
-    grid-area: HEADER;
+.toggle-buttons-container {
+	background-color: rgb(255, 255, 255);
+	display: flex;
+	flex-direction: column;
 }
-.root-folders {
-    grid-area: FOLDERS;
+.toggle-buttons {
+	background-color: rgb(162, 162, 231);
+	width: 100%;
+	margin-top: 20px;
+	padding: 7px;
+	border: none;
+	border-radius: 5px;
 }
-.root-maillist {
-    grid-area: MAILLIST;
+.mail-chat-container {
+	background-color: white;
+	margin-left: 80px;
 }
-.root-mailbody {
-    grid-area: MAILBODY;
+.mail-chat-container-heading {
+	border-bottom: 1px solid rgb(151, 151, 151);
+	width: 80%;
+}
+
+.mails {
+}
+.chat-box {
 }

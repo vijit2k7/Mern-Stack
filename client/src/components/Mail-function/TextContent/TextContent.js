@@ -5,48 +5,30 @@ import classes from './TextContent.css'
 
 function TextContent({user,id}) {
     // FETCHING DATA FROM STORE
+    console.log("text content user and id",user,id);
     const { getdata, selectedID, flagFilter, getFilteredData } = data;
 
     // FETCHING THE INDIVIDUAL DETAILS
-    const mailJSON = useMemo(() => {
+    const mailJSON = () => {
         console.log("data  syyis",data,user);
         for(let i=0;i<data.length;i++)
         {
             if(data[i].mId===id)
                 return data[i]
         }
-    }, []);
+    };
 
 
     // CREATING THE MAIL BODY
     const mailContent = () => {
-        // if (flagFilter ? getFilteredData.length :getdata.length) {
-        //     if (!selectedID) {
-        //         return (
-        //             <section className={classes.noMailContentWrapper}>
-        //                 <div>Select an item to read</div>
-        //                 <div>Nothing is selected !</div>
-        //             </section>
-        //         )
-        //     }
         console.log("mailjson is",mailJSON);
-        if (mailJSON) {
+        if (mailJSON()) {
                 return (
                     <div className={classes.mainBody}>
-                        {/* <header className={classes.profileHeader}>
-                            <div className={classes.outerFlex}>
-                                <FontAwesomeIcon size="3x" icon={faUserCircle} className={classes.profileIconStyles}></FontAwesomeIcon>
-                                <div className={classes.innerFlex}>
-                                    <span>{mailJSON?.mId}</span>
-                                    <span>{mailJSON?.subject}</span>
-                                </div>
-                            </div>
-                            {(selectedFolder !== FOLDER_TYPES.DELETED) && <FontAwesomeIcon size="sm" icon={faTrashAlt} className={classes.deleteIconStyles} onClick={deleteClickHandler.bind(null, mailJSON?.mId)}></FontAwesomeIcon>}
-                        </header>
-                        <hr /> */}
+                        <h2>Chat box</h2>
 
                         <main>
-                            <div  dangerouslySetInnerHTML={{ __html: mailJSON.content }} className={classes.dangerousDiv}></div>
+                            <div  dangerouslySetInnerHTML={{ __html: mailJSON().content }} className={classes.dangerousDiv}></div>
                         </main>
                     </div>
                 )
@@ -57,7 +39,7 @@ function TextContent({user,id}) {
 
     return (
         <div className={classes.wrapper}>
-            {mailContent}
+            {mailContent()}
         </div>
     )
 }

@@ -27,7 +27,7 @@ function Login() {
     console.log("flag in login",flag)
     function onClickHandler()
     {
-        console.log('history',flag)
+        console.log('flag is',flag)
         setFlag(!flag)
         //history.push('/home')
     }
@@ -39,10 +39,12 @@ function Login() {
     return (
         <div>
             {!flag}
-        {(!flag)&&(<form>
+        {(!flag)&&(
+            <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh',background:'aqua'}}>
+            <form>
                 <h3>Sign In</h3>
 
-                <div className="form-group" style={{marginBottom:20}}>
+                <div className="form-group" style={{marginBottom:20,width:'300px'}}>
                     <label>User List</label>
 
                         <select className="form-control" value={user} onChange={handleUserChange}>
@@ -64,8 +66,9 @@ function Login() {
                 <p className="forgot-password text-right">
                     Forgot <a href="#">password?</a>
                 </p>
-            </form>)}
-            {user}
+            </form>
+            </div>)}
+
             {flag&&
 
                 <Mailfunction user={user}></Mailfunction>
